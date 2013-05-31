@@ -55,7 +55,7 @@ function handle_resource_response(response) {
             var d = Date.parse(e.resource.created_at);
             var date = new Date(d);
             $('#joinme_list')
-                .append('<li><a href="' + e.resource.uri + '" target="_blank">' + e.resource.local_name + '</a> <span class="date">(' + date.toTimeString() + ',' + date.toDateString() + ')</span> by Anonymous</li>');
+                .append('<li><a href="' + e.resource.uri + '" target="_blank">' + e.resource.local_name + '</a> <span class="date">(' + e.resource.time + ')</span> by ' + e.resource.owner + '</li>');
         });
     } else {
         $('#joinme_div').css('display', 'none');

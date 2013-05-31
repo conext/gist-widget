@@ -23,7 +23,7 @@ body {
 }
 
 #bar {
-    background-color: #f8eec7;
+    background-color: #e8e8e8  ;
     background-image: url('https://gist-widget.identitylabs.org/gist.png');
     background-size: auto 24px;
     background-position: 3px center;
@@ -35,7 +35,7 @@ body {
     background-image: url('https://gist-widget.identitylabs.org/gist.png');
     background-repeat: no-repeat;
     background-position: center center;
-    background-color: #f8eec7;
+    background-color: #e8e8e8;
     height: 100%;
     width: 100%;
 }

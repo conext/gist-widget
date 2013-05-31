@@ -57,6 +57,8 @@ function handle_resource_response(response) {
             $('#joinme_list')
                 .append('<li><a href="' + e.resource.uri + '" target="_blank">' + e.resource.local_name + '</a> <span class="date">(' + date.toTimeString() + ',' + date.toDateString() + ')</span></li>');
         });
+    } else {
+        $('#joinme_div').css('display', 'none');
     }
 }
 

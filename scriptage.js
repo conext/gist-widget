@@ -97,6 +97,9 @@ function entry() {
     $('#create_form').submit(function(e) {
         e.preventDefault();
         var local_name = $('#site_name').val();
+        if (local_name == "") {
+            local_name = "Untitled";
+        }
         var identifier = $('#identifier').val();
         clog("Will create: " + local_name + " for " + identifier);
         var date = new Date();

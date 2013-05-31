@@ -1,0 +1,75 @@
+<Module>
+    <ModulePrefs
+            title="Gist Widget"
+            title_url="https://github.com/conext/gist-widget"
+            directory_title="Dir"
+            description="A widget that gives users access to JOIN.me services."
+            screenshot="https://gist-widget.identitylabs.org/gist.png"
+            thumbnail="https://gist-widget.identitylabs.org/gist.png"
+            category="tools"
+            category2="productivity"
+            author="Cloud Identity Limited - http://www.cloudidentity.co.uk"
+            author_email="info@cloudidentity.co.uk">
+
+        <Require feature="setprefs"/>
+        <Require feature="dynamic-height"/>
+        <Require feature="opensocial-2.5"/>
+        <Require feature="osapi"/>
+        <Require feature="views"/>
+        <Require feature="resources"/>
+
+    </ModulePrefs>
+
+    <!-- Default view -->
+    <Content view="default" type="html">
+        <![CDATA[
+
+    <!-- "<link> tags should only appear in <head> .. ;)" -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400&subset=latin,latin-ext,cyrillic-ext' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://gist-widget.identitylabs.org/flair.css"></link>
+    <link rel="stylesheet" href="https://gist-widget.identitylabs.org/css/bootstrap.min.css"></link>
+    <script type="text/javascript" src="https://gist-widget.identitylabs.org/scriptage.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="https://raw.github.com/placemarker/jQuery-MD5/master/jquery.md5.js"></script>
+    <script type="text/javascript">
+        gadgets.util.registerOnLoadHandler(entry);
+    </script>
+
+    <div id="splash">
+        &nbsp;
+    </div>
+    <div id="content">
+
+        <div id="bar">
+        </div>
+
+        <div id="messagebox">
+            <div id="mbox_title">
+            _
+            </div>
+            <div id="mbox_description">
+            _
+            </div>
+        </div>
+
+        <div id="c_create" class="renderable">
+            Paste Your Gist Link:
+            <form action="#" id="create_form">
+            <fieldset>
+                <input type="text" id="site_name" size=30 placeholder="Screen name"/>
+                <input type="text" id="identifier" size=30 placeholder="Gist Secret/Public Link"/>
+                <input type="submit" id="create_btn" class="btn" value="Publish your Gist &rsaquo;">
+               </form>
+               </fieldset>
+        </div>
+
+        <div id="joinme_div" class="renderable">
+            Recently added Gists:
+            <ul id="joinme_list"></ul>
+        </div>
+
+    </div>
+
+    ]]>
+    </Content>
+</Module>

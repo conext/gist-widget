@@ -44,6 +44,11 @@ body {
     clear: both;
 }
 
+.date {
+    font-style: italic;
+    text-decoration-color: #6E6E6E;
+}
+
 #link {
     font-family: 'Open Sans', sans-serif;
     text-decoration: none;

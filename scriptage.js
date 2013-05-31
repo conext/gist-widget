@@ -19,21 +19,6 @@ function render_empty_feed(group_name) {
     ); 
 }
 
-function get_user_groups() {
-    osapi.groups.get().execute(function(d) {
-        clog("in get_user_groups():");
-        console.log(d);
-        $('#group_select').empty();
-        d.list.forEach(function(e) {
-            $('#group_select').append($('<option></option>')
-                .attr('value', e.id)
-                .text(e.title + " (" + e.description + ")"));
-        });
-        /* jmp */
-        get_wp_resources();
-    });
-}
-
 /* Pull from dropdown, atm. */
 function get_current_group() {
     return current_group; /* todo: cleanup */
@@ -53,7 +38,7 @@ function messagebox(message, description) {
 function render_goto(site_name, identifier, date) {
     clog("in render_goto()");
     $('#joinme_div').css('display', 'block');
-    $('#joinme_list').prepend('<li><a href="' + identifier + '" target="_blank">' + site_name + '</a> (' + date + ')</li>');
+    $('#joinme_list').prepend('<li><a href="' + identifier + '" target="_blank">' + site_name + '</a> <span class="date">(' + date + ')</span></li>');
     /* Make link disappear after it's clicked. */
 }
 
@@ -67,8 +52,10 @@ function handle_resource_response(response) {
         $('#joinme_list').css('display', 'block');
         $('#joinme_list').empty();
         res.reverse().forEach(function(e) {
+            var d = Date.parse(e.resource.created_at);
+            var date = new Date(d);
             $('#joinme_list')
-                .append('<li><a href="' + e.resource.uri + '" target="_blank">' + e.resource.local_name + '</a> (' + e.resource.date + ')</li>');
+                .append('<li><a href="' + e.resource.uri + '" target="_blank">' + e.resource.local_name + '</a> <span class="date">(' + date.toTimeString() + ',' + date.toDateString() + ')</span></li>');
         });
     }
 }

@@ -3,7 +3,7 @@
             title="Gist Widget"
             title_url="https://github.com/conext/gist-widget"
             directory_title="Dir"
-            description="A widget that gives users access to JOIN.me services."
+            description="A widget that gives users access to gist.github.com services."
             screenshot="https://gist-widget.identitylabs.org/gist.png"
             thumbnail="https://gist-widget.identitylabs.org/gist.png"
             category="tools"

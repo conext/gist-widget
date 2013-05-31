@@ -35,10 +35,10 @@ function messagebox(message, description) {
 }
 
 /* Render div with a link to newly created join.me */
-function render_goto(site_name, identifier, date) {
+function render_goto(site_name, identifier, date, displayName) {
     clog("in render_goto()");
     $('#joinme_div').css('display', 'block');
-    $('#joinme_list').prepend('<li><a href="' + identifier + '" target="_blank">' + site_name + '</a> <span class="date">(' + date + ')</span></li>');
+    $('#joinme_list').prepend('<li><a href="' + identifier + '" target="_blank">' + site_name + '</a> <span class="date">(' + date + ')</span> by ' + displayName + '</li>');
     /* Make link disappear after it's clicked. */
 }
 
@@ -55,7 +55,7 @@ function handle_resource_response(response) {
             var d = Date.parse(e.resource.created_at);
             var date = new Date(d);
             $('#joinme_list')
-                .append('<li><a href="' + e.resource.uri + '" target="_blank">' + e.resource.local_name + '</a> <span class="date">(' + date.toTimeString() + ',' + date.toDateString() + ')</span></li>');
+                .append('<li><a href="' + e.resource.uri + '" target="_blank">' + e.resource.local_name + '</a> <span class="date">(' + date.toTimeString() + ',' + date.toDateString() + ')</span> by Anonymous</li>');
         });
     } else {
         $('#joinme_div').css('display', 'none');
@@ -122,10 +122,18 @@ function entry() {
                 var res = $.parseJSON(res.resource);
                 console.log(res);
                 if (res.outcome == "ok") {
-                    render_goto(local_name, identifier, date);
+                    osapi.people.get({userId: '@owner'}).execute(function(result){
+                        if (!result.error) {
+                            render_goto(local_name, identifier, date, result.displayName);
+                        }
+                    })
                 } else {
                     clog("Not OK.");
-                    render_goto(local_name, identifier, date);
+                    osapi.people.get({userId: '@owner'}).execute(function(result){
+                        if (!result.error) {
+                            render_goto(local_name, identifier, date, result.displayName);
+                        }
+                    })
                 }
             });
     });

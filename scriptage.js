@@ -50,10 +50,10 @@ function messagebox(message, description) {
 }
 
 /* Render div with a link to newly created join.me */
-function render_goto(site_name, identifier) {
+function render_goto(site_name, identifier, date) {
     clog("in render_goto()");
     $('#joinme_div').css('display', 'block');
-    $('#joinme_list').append('<li><a href="https://join.me/' + identifier + '" target="_blank">' + site_name + '</a></li>');
+    $('#joinme_list').prepend('<li><a href="' + identifier + '" target="_blank">' + site_name + '</a> (' + date + ')</li>');
     /* Make link disappear after it's clicked. */
 }
 
@@ -65,10 +65,10 @@ function handle_resource_response(response) {
     decommission_splash();
     if (res.length > 0) {
         $('#joinme_list').css('display', 'block');
-        $('#joinme_list').reverse().empty();
-        res.forEach(function(e) {
+        $('#joinme_list').empty();
+        res.reverse().forEach(function(e) {
             $('#joinme_list')
-                .append('<li><a href="' + e.resource.uri + '" target="_blank">' + e.resource.local_name + '</a></li>');
+                .append('<li><a href="' + e.resource.uri + '" target="_blank">' + e.resource.local_name + '</a> (' + e.resource.date + ')</li>');
         });
     }
 }
@@ -112,11 +112,13 @@ function entry() {
         var local_name = $('#site_name').val();
         var identifier = $('#identifier').val();
         clog("Will create: " + local_name + " for " + identifier);
+        var date = new Date();
         osapi.resources.createResource({
             "groupId": get_current_group(),
             "obj" : {
                 "local_name": local_name,
-                "uri": identifier
+                "uri": identifier,
+                "date": date
             }
         }).execute(function(res) {
                 clog("response I got: ");
@@ -124,10 +126,10 @@ function entry() {
                 var res = $.parseJSON(res.resource);
                 console.log(res);
                 if (res.outcome == "ok") {
-                    render_goto(local_name, identifier);
+                    render_goto(local_name, identifier, date);
                 } else {
                     clog("Not OK.");
-                    render_goto(local_name, identifier);
+                    render_goto(local_name, identifier, date);
                 }
             });
     });

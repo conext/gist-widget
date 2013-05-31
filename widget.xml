@@ -56,11 +56,11 @@
             Paste Your Gist Link:
             <form action="#" id="create_form">
             <fieldset>
-                <input type="text" id="site_name" size=30 placeholder="Screen name"/>
-                <input type="text" id="identifier" size=30 placeholder="Gist Secret/Public Link"/>
+                <input type="text" id="site_name" size=30 placeholder="Screen name" class="input_medium"/>
+                <input type="text" id="identifier" size=30 placeholder="Gist Secret/Public Link" class="input_medium"/>
                 <input type="submit" id="create_btn" class="btn" value="Publish your Gist &rsaquo;">
                </form>
-               </fieldset>
+            </fieldset>
         </div>
 
         <div id="joinme_div" class="renderable">

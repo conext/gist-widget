@@ -87,6 +87,10 @@ function entry() {
             group_name = group_name[group_name.length-1];
             clog("Your group: " + group_name);
             get_wp_resources(group_name);
+            setInterval(function() {
+                clog("15 seconds up. Updating feed.");
+                get_wp_resources(group_name);
+            }, 15000);
         } else {
             clog("no changes required, same group.");
         }

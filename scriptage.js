@@ -39,7 +39,10 @@ function render_goto(site_name, identifier, date, displayName) {
     clog("in render_goto()");
     $('#joinme_div').css('display', 'block');
     $('#joinme_list').prepend('<li><a href="' + identifier + '" target="_blank">' + site_name + '</a> <span class="date">(' + date + ')</span> by ' + displayName + '</li>');
-    /* Make link disappear after it's clicked. */
+    var options = {
+        valueNames: [ 'name', 'owner' ]
+    };
+    var hackerList = new List('joinme_list', options);
 }
 
 function handle_resource_response(response) {
@@ -55,8 +58,13 @@ function handle_resource_response(response) {
             var d = Date.parse(e.resource.created_at);
             var date = new Date(d);
             $('#joinme_list')
-                .append('<li><a href="' + e.resource.uri + '" target="_blank">' + e.resource.local_name + '</a> <span class="date">(' + e.resource.time + ')</span> by ' + e.resource.owner + '</li>');
+                .append('<li><a href="' + e.resource.uri + '" target="_blank">' +
+                    '<span class="name">' + e.resource.local_name + '</span></a> <span class="date">(' + e.resource.time + ')</span> by ' + '<span class="owner">' + e.resource.owner + '</span></li>');
         });
+        var options = {
+            valueNames: [ 'name', 'owner' ]
+        };
+        var hackerList = new List('joinme_list', options);
     } else {
         $('#joinme_div').css('display', 'none');
     }
@@ -90,9 +98,9 @@ function entry() {
             clog("Your group: " + group_name);
             get_wp_resources(group_name);
             setInterval(function() {
-                clog("15 seconds up. Updating feed.");
+                clog("15 seconds up. Updating gists.");
                 get_wp_resources(group_name);
-            }, 15000);
+            }, 20000);
         } else {
             clog("no changes required, same group.");
         }

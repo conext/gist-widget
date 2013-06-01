@@ -29,6 +29,7 @@
     <link rel="stylesheet" href="https://gist-widget.identitylabs.org/flair.css"></link>
     <link rel="stylesheet" href="https://gist-widget.identitylabs.org/css/bootstrap.min.css"></link>
     <script type="text/javascript" src="https://gist-widget.identitylabs.org/scriptage.js"></script>
+    <script type="text/javascript" src="https://gist-widget.identitylabs.org/list.min.js"></script>
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
     <script type="text/javascript" src="https://raw.github.com/placemarker/jQuery-MD5/master/jquery.md5.js"></script>
     <script type="text/javascript">
@@ -65,8 +66,10 @@
         </div>
 
         <div id="joinme_div" class="renderable">
+        <input class="search" />
             Recently added Gists:
-            <ul id="joinme_list"></ul>
+            <ul id="joinme_list" class="list>
+            </ul>
         </div>
 
     </div>

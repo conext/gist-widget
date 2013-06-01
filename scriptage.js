@@ -64,7 +64,7 @@ function handle_resource_response(response) {
         var options = {
             valueNames: [ 'name', 'owner' ]
         };
-        var hackerList = new List('joinme_list', options);
+        var hackerList = new List('joinme_div', options);
     } else {
         $('#joinme_div').css('display', 'none');
     }

@@ -27,10 +27,10 @@
     <!-- "<link> tags should only appear in <head> .. ;)" -->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400&subset=latin,latin-ext,cyrillic-ext' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://gist-widget.identitylabs.org/flair.css"></link>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
     <link rel="stylesheet" href="https://gist-widget.identitylabs.org/css/bootstrap.min.css"></link>
     <script type="text/javascript" src="https://gist-widget.identitylabs.org/scriptage.js"></script>
     <script type="text/javascript" src="https://gist-widget.identitylabs.org/list.min.js"></script>
-    <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
     <script type="text/javascript" src="https://raw.github.com/placemarker/jQuery-MD5/master/jquery.md5.js"></script>
     <script type="text/javascript">
         gadgets.util.registerOnLoadHandler(entry);

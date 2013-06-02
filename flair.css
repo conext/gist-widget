@@ -74,3 +74,11 @@ body {
 #ht {
     font-family: 'Open Sans', sans-serif;
 }
+
+.btn {
+    vertical-align: top;
+}
+
+input[type="text"] {
+    height: none;
+}

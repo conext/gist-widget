@@ -39,7 +39,7 @@ function render_goto(site_name, identifier, date, displayName) {
     clog("in render_goto()");
     $('#joinme_div').css('display', 'block');
     var s = new Date(date).toISOString();
-    $('#joinme_list').prepend('<li><a href="' + identifier + '" target="_blank">' + site_name + '</a> <span class="date" title="' + s + '"> by <span class="owner">' + displayName + '</span></li>');
+    $('#joinme_list').prepend('<li><a href="' + identifier + '" target="_blank">' + site_name + '</a>  by <span class="owner">' + displayName + '</span> - <span class="date" title="' + s + '"></li>');
     $('span.date').timeago();
     var options = {
         valueNames: [ 'name', 'owner' ]
@@ -60,7 +60,7 @@ function handle_resource_response(response) {
             var s = new Date(e.resource.created_at).toISOString();
             $('#joinme_list')
                 .append('<li><a href="' + e.resource.uri + '" target="_blank">' +
-                    '<span class="name">' + e.resource.local_name + '</span></a> <span class="date" title="' + s + '"></span> by <span class="owner">' + e.resource.owner + '</span></li>');
+                    '<span class="name">' + e.resource.local_name + '</span></a> by <span class="owner">' + e.resource.owner + '</span> - <span class="date" title="' + s + '"></span></li>');
             $('span.date').timeago();
         });
         var options = {

@@ -100,7 +100,7 @@ function entry() {
             setInterval(function() {
                 clog("15 seconds up. Updating gists.");
                 get_wp_resources(group_name);
-            }, 20000);
+            }, 15000);
         } else {
             clog("no changes required, same group.");
         }

@@ -38,7 +38,9 @@ function messagebox(message, description) {
 function render_goto(site_name, identifier, date, displayName) {
     clog("in render_goto()");
     $('#joinme_div').css('display', 'block');
-    $('#joinme_list').prepend('<li><a href="' + identifier + '" target="_blank">' + site_name + '</a> <span class="date">(' + date + ')</span> by ' + displayName + '</li>');
+    var s = new Date(date).toISOString();
+    $('#joinme_list').prepend('<li><a href="' + identifier + '" target="_blank">' + site_name + '</a> <span class="date" title="' + s + '"> by <span class="owner">' + displayName + '</span></li>');
+    $('span.date').timeago();
     var options = {
         valueNames: [ 'name', 'owner' ]
     };

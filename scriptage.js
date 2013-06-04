@@ -3,7 +3,7 @@ var response;
 var dbg;
 
 function clog(message) {
-    console.log("Join.me ~> " + message);
+    console.log("Gist widget ~> " + message);
 }
 
 function decommission_splash() {
@@ -55,11 +55,11 @@ function handle_resource_response(response) {
         $('#joinme_list').css('display', 'block');
         $('#joinme_list').empty();
         res.reverse().forEach(function(e) {
-            var d = Date.parse(e.resource.created_at);
-            var date = new Date(d);
+            var s = new Date(e.resource.created_at).toISOString();
             $('#joinme_list')
                 .append('<li><a href="' + e.resource.uri + '" target="_blank">' +
-                    '<span class="name">' + e.resource.local_name + '</span></a> <span class="date">(' + e.resource.time + ')</span> by ' + '<span class="owner">' + e.resource.owner + '</span></li>');
+                    '<span class="name">' + e.resource.local_name + '</span></a> <span class="date" title="' + s + '"></span> by <span class="owner">' + e.resource.owner + '</span></li>');
+            $('span.date').timeago();
         });
         var options = {
             valueNames: [ 'name', 'owner' ]
@@ -84,6 +84,9 @@ function get_wp_resources(group_id) {
 }
 
 function entry() {
+    /* bypassing some stupid cache or soemthing */
+    $('<script type="text/javascript" src="https://gist-widget.identitylabs.org/jquery.timeago.js"></script>').appendTo('head');
+
     /* enlarge your widget. satisfy your user. */
     gadgets.window.adjustHeight(295);
     window.addEventListener("message", function(ev) {

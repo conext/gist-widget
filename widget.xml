@@ -34,6 +34,7 @@
     <script type="text/javascript" src="https://gist-widget.identitylabs.org/scriptage.js"></script>
     <script type="text/javascript" src="https://gist-widget.identitylabs.org/list.min.js"></script>
     <script type="text/javascript" src="https://raw.github.com/placemarker/jQuery-MD5/master/jquery.md5.js"></script>
+    <script type="text/javascript" src="https://gist-widget.identitylabs.org/jquery.timeago.js"></script>
     <script type="text/javascript">
         gadgets.util.registerOnLoadHandler(entry);
     </script>

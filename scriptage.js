@@ -95,7 +95,7 @@ function entry() {
         console.log(ev.data);
         if (!ev.data) {
             clog("No group.");
-            messagebox('No group selected.', 'Weird, I couldn\'t get your current group.');
+            messagebox('No group selected.', 'CONEXT-152, unifying no-group message.');
         } else if (ev.data != current_group) {
             current_group = ev.data;
             var group_name = ev.data.split(":");

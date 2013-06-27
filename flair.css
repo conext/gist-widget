@@ -82,3 +82,8 @@ body {
 input[type="text"] {
     height: none;
 }
+
+span.date {
+    margin-left: 8px;
+    margin-right: 8px;
+}

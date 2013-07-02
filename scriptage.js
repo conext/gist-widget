@@ -95,7 +95,7 @@ function entry() {
         console.log(ev.data);
         if (!ev.data) {
             clog("No group.");
-            messagebox('No group selected.', 'CONEXT-152, unifying no-group message.');
+            messagebox('No group selected.', 'Please select a group to work with this application.');
         } else if (ev.data != current_group) {
             current_group = ev.data;
             var group_name = ev.data.split(":");

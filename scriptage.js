@@ -86,8 +86,6 @@ function get_wp_resources(group_id) {
 }
 
 function entry() {
-    /* bypassing some stupid cache or soemthing */
-    $('<script type="text/javascript" src="https://gist-widget.identitylabs.org/jquery.timeago.js"></script>').appendTo('head');
 
     /* enlarge your widget. satisfy your user. */
     gadgets.window.adjustHeight(295);

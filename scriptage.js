@@ -86,8 +86,6 @@ function get_wp_resources(group_id) {
 }
 
 function entry() {
-    /* bypassing some stupid cache or soemthing */
-    $('<script type="text/javascript" src="https://gist-widget.identitylabs.org/jquery.timeago.js"></script>').appendTo('head');
 
     /* enlarge your widget. satisfy your user. */
     gadgets.window.adjustHeight(295);
@@ -95,7 +93,7 @@ function entry() {
         console.log(ev.data);
         if (!ev.data) {
             clog("No group.");
-            messagebox('No group selected.', 'Weird, I couldn\'t get your current group.');
+            messagebox('No group selected.', 'Please select a group to work with this application.');
         } else if (ev.data != current_group) {
             current_group = ev.data;
             var group_name = ev.data.split(":");
